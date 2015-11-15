@@ -10,15 +10,6 @@
     %ul
      %li.close
       %a.main-nav--toggle{:href => "#"} Close Menu
-     %li
-      = link_to 'About Us', '/index.html#mission', {:id => "close-nav"}
-     %li
-      = link_to 'Educational Program', '/program.html'
-     %li
-      = link_to 'Enrollment and Applying', '/enroll.html'
-     %li
-      = link_to 'Questions', '/questions.html' 
-     %li
-      = link_to 'Parents', '/parents.html'
+     = render_partial 'nav'
   .header-tree
    = image_tag '/images/header-tree.png'

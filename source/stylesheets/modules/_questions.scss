@@ -1,5 +1,10 @@
 .questions {
     &-body {
+        .data-table .label {
+            @include breakpoint (670px $drop-nav-max) {
+                width: 38%;
+            }
+        }
         //@extend %full-image;
         //background-image: url(/images/construction-paper-texture-purple.jpg);
         h2 {
