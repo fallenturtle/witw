@@ -1,0 +1,261 @@
+$susy: (global-box-sizing: border-box);
+
+.block-inner {
+    background-color: rgba(black, 0.85);
+
+    @include breakpoint(0 $small-portrait) {
+        padding: $base-margin;
+        margin-top: 8em;
+    }
+
+
+    padding: $base-margin * 2;
+
+    > h2:first-child {
+        margin-top: 0;
+    }   
+}
+
+@include breakpoint(0 $max-width) {
+    .block-before, .block-after {
+        display: none;
+    }
+}
+
+
+@include breakpoint(0 $small-portrait) {
+    .container-block-left, .container-block-right, .container-block-right-tight, .container-block-middle {
+        margin-left: $pad;
+        margin-right: $pad;
+    }
+}
+
+
+.container-block-double, .container-block-middle {
+    margin-left: $pad;
+    margin-right: $pad;
+}
+
+@include breakpoint($small-portrait $max-width) {
+    .container-block-left {
+        @include span(8 of 12);
+    }
+
+    .container-block-right {
+        @include span(8 of 12);
+
+        @include push(4 of 12);
+
+        &-tight {
+            @include span(2 of 3);
+
+            @include push(1 of 3);
+        }
+    }
+
+    .block-center {
+        @include span(8 of 12);
+
+        @include prefix(2 of 12);
+    }
+}
+
+
+.container {
+    padding: $base-margin;
+
+    @include container($max-width);
+
+    overflow: auto;
+
+    @include breakpoint($small-portrait) {
+        padding: $base-margin * 2;
+    }
+
+
+    &-block-right {}
+}
+
+.container-block-left .block-before {
+    @include breakpoint($max-width 1138px) {
+        min-width: $base-margin * 2;
+    }
+}
+
+@include breakpoint($max-width) {
+    %container-bleed {
+        overflow: auto;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .container-block-left {
+        @extend %container-bleed;
+
+        .block-core {
+            flex-basis: $max-width;
+
+            @include container(3 border-box);
+        }
+
+        .block-after {
+            flex-grow: 2;
+        }
+
+        .block-before {
+            background-color: rgba(black, 0.85);
+            flex-grow: 2;
+        }
+
+        .block-inner {
+            @include span(2 of 3);
+
+            // @include gutter(0);
+            // @include suffix(1 of 3);
+            box-sizing: border-box;
+            padding-left: 0;
+        }
+    }
+
+    .container-block-right {
+        @extend %container-bleed;
+
+        .block-core {
+            flex-basis: $max-width;
+
+            @include container(3 border-box);
+        }
+
+        .block-before {
+            flex-grow: 2;
+        }
+
+        .block-after {
+            background-color: rgba(black, 0.85);
+            flex-grow: 3;
+        }
+
+        .block-inner {
+            @include span(2 of 3);
+
+            @include push(1 of 3);
+
+            box-sizing: border-box;
+            padding-right: 0;
+        }
+    }
+
+    .block-center {
+        @include span(8 of 12);
+
+        @include prefix(2 of 12);
+    }
+}
+
+
+// @include susy-breakpoint($break) {
+//   .philosophy { @include prefix(6); }
+//   .philosophy { @include span(6); }
+// }
+
+.container-block-double {
+    @extend .container;
+
+    @include breakpoint($small-portrait) {
+        .block-inner, .block-inner-open {
+            clear: both;
+
+            @include container(6);
+        }
+
+        .block-column {
+            &-1 {
+                @include span(3 of 6);
+            }
+
+            &-2 {
+                @include span(3 of 6 last);
+            }
+        }
+    }
+}
+
+.container-block-double-unequal {
+    @extend .container;
+
+    @include breakpoint($small-portrait) {
+        .block-inner, .block-inner-open {
+            clear: both;
+            @include container(6);
+        }
+    }
+
+
+    @include breakpoint($small-portrait $max-width) {
+        .block-column {
+            &-1 {
+                @include span(3 of 6);
+            }
+
+            &-2 {
+                @include span(3 of 6 last);
+            }
+        }
+    }
+
+
+    @include breakpoint($max-width) {
+        .block-column {
+            &-1 {
+                @include span(2 of 6);
+            }
+
+            &-2 {
+                @include span(4 of 6 last);
+            }
+        }
+    }
+}
+.container-row {
+    clear: both;
+    margin-bottom: 2em;
+    overflow: auto;
+}
+.container-block-right-tight {
+    @include breakpoint($max-width) {
+        @extend %container-bleed;
+
+        .block-core {
+            flex-basis: $max-width;
+
+            @include container(3 border-box);
+        }
+
+        .block-before {
+            flex-grow: 2;
+        }
+
+        .block-after {
+            background-color: rgba(black, 0.85);
+            flex-grow: 3;
+        }
+
+        .block-inner {
+            @include span(4 of 12);
+
+            @include push(8 of 12);
+
+            box-sizing: border-box;
+
+            //padding-right: 0;
+       
+        }
+    }
+
+
+    // @include breakpoint($small-portrait) {
+    //     @include span(6 of 12 last);
+    //     @include push(6 of 12);
+    // }
+}

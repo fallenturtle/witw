@@ -1,0 +1,193 @@
+nav {
+    padding-top: $pad;
+
+    li {
+        font-size: 1.3em;
+        padding: 0.25em 0.5em;
+        font-family: $serif;
+        font-weight: 400;
+    }
+}
+
+#jPanelMenu-menu {
+    background-color:#464646;
+    ul {
+        margin: $pad / 2;
+    }
+
+    li.close {
+        border-bottom: 1px solid white;
+        padding-bottom: 0.45em;
+        position: relative;
+        margin-bottom: 0.5em;
+
+        .main-nav--toggle {
+            font-size: 0.75em;
+
+            &::after {
+                @include triangle(right, white, 0.3em);
+
+                //position: absolute;
+                display: inline-block;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    a {
+        @include link-colors(white);
+    }
+}
+
+header.home .nav-container {
+    @include breakpoint(0 $small-portrait) {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+
+    @include breakpoint($drop-nav-max) {
+        border-top: 1px solid white;
+        margin-right: 1em;
+    }
+}
+
+header.home #main-nav {
+    display: none;
+
+    @include breakpoint($drop-nav-max) {
+        display: block;
+        text-align: left;
+    }
+
+
+    @include breakpoint($drop-nav-max $max-width) {
+        font-size: 1.7vw;
+    }
+
+
+    li.close {
+        @include breakpoint($drop-nav-max) {
+            display: none;
+        }
+    }
+}
+
+header .nav-button {
+        position: relative;
+        z-index: 10;
+        border: 1px solid rgba(white, 0.25);
+        padding: ($pad / 4) ($pad * 0.75);
+        background-color: rgba(white, 0.1);
+        margin-bottom: $pad;
+        margin-right: $pad;
+        background-image: url(../images/hamburger.svg);
+        background-repeat: no-repeat;
+        background-position: 0.55em center;
+        
+        &:hover {
+            background-color: rgba(white, 0.5);
+        }
+            span {
+            margin-left:25px;
+            font-weight: 500;
+        } 
+
+}
+
+header.home {
+    h1.site-title {
+         @include breakpoint(0 $small-portrait) {
+        margin-top: 0.5em;
+    }   
+    }
+    .nav-button {
+                display: inline-block;
+    @include breakpoint($drop-nav-max) {
+        display: none;
+    }
+    @include breakpoint(0 $small-portrait) {
+        text-align: left;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        left: 0;
+        border-width: 0 0 1px;
+    }
+
+    @include breakpoint(0 $drop-nav-max) {
+        font-size: 1.3em;
+        padding: 0.25em 0.5em;
+        font-family: $serif;
+        font-weight: 400;
+    }
+}
+}
+
+header.inner {
+    #main-nav {
+        @include breakpoint(0 $grid-shift - 1) {
+            display: none;
+        }
+    }
+    .nav-button {
+        @include breakpoint(0 $small-portrait) {
+            span {
+                display: none;
+            }
+        border: 1px solid rgba(white, 0.25);
+        padding: ($pad/3) ($pad*0.85);
+        background-color: rgba(white, 0.1);
+        margin-bottom: $pad;
+        background-image: url(../images/hamburger.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-right: $pad;
+        }       
+    }
+    .nav-container {
+        @include breakpoint(0 $small-portrait) {
+            //position: absolute;
+            //right: $pad;
+        }
+
+
+        @include breakpoint($small-portrait $grid-shift) {
+            //position: absolute;
+            //right: $pad * 2;
+        }
+
+
+        @include breakpoint($grid-shift) {
+            position: relative;
+            ul {
+                margin-bottom: 0;
+                padding-bottom: $pad/2;
+            }
+        }
+
+
+        nav {
+            @include breakpoint($grid-shift) {
+                padding-top: 0;
+            }
+        }
+    }
+    li.close, .nav-button {
+        @include breakpoint($grid-shift) {
+            display: none;
+        }
+    }
+    li {
+        // font-size: 1.3em;
+        &:nth-of-type(2) {
+            padding-left: 0;
+        }
+        // font-family: $serif;
+        // font-weight: 400;
+        display: inline-block;
+        @include breakpoint($grid-shift $max-width) {
+            font-size: 1.2em;
+        }
+    }
+}

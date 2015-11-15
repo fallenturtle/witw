@@ -1,0 +1,58 @@
+%homepadding {
+    @include breakpoint(0 $small-portrait) {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+
+
+    @include breakpoint($small-portrait) {
+        padding-top: 3em;
+        padding-bottom: 3em;
+    }
+    overflow: auto;
+}
+
+.mission {
+    @extend %full-image;
+    @extend %homepadding;
+    //min-height:25em;
+    background-image: url(/images/mission_bg.jpg);
+    text-align: center;
+
+    // background-position: center;
+    p {
+        max-width: 30em;
+        margin: 0 auto 1em;
+    }
+}
+
+.philosophy {
+    @extend %full-image;
+    background-image: url(/images/philo_bg.jpg);
+    @extend %homepadding;
+}
+
+.staff {
+    @extend %full-image;
+    background-image: url(/images/construction-paper-texture-purple.jpg);
+    .block-left > h2 {
+                margin-top: $pad/4;
+    }
+    @include breakpoint($small-portrait) {
+        .block-left {
+            @include span(6 of 12);
+
+ 
+        }
+
+        .block-image {
+            @include span(last 6 of 12);
+        }
+    }
+}
+
+.community {
+    @extend %full-image;
+    background-image: url(/images/comm_bg.jpg);
+    @extend %homepadding;
+}

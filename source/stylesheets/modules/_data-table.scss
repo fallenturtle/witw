@@ -1,0 +1,53 @@
+$table-collapse: 678px;
+.data-table {
+    display: table;
+    @include breakpoint(0 $table-collapse) {
+        width:100%;
+    }
+    .row {
+        display: table-row;
+    }
+
+    .label, .data {
+        @include breakpoint($table-collapse) {
+            display: table-cell;
+        }
+    }
+
+    .label {
+        font-weight: 500;
+        padding-right: $pad;
+        text-align: left;
+        border-top: 1px dotted black;
+            .block-inner & {
+                border-top: 1px dotted white;
+            }
+        padding: ($pad * 0.75) 0 ($pad/4);
+        @include breakpoint($table-collapse) {
+            margin-bottom: $pad;
+        padding: ($pad * 0.75) $pad $pad 0;
+        }
+    }
+
+    .data {
+        margin-bottom: $pad;
+        padding: 0;
+        @include breakpoint($table-collapse) {
+            border-top: 1px dotted black;
+            padding: ($pad * 0.75) 0 $pad;
+            .block-inner & {
+                border-top: 1px dotted white;
+            }
+        }
+    }
+
+    .hours-time {
+        letter-spacing: 1px;
+    }
+    .row:first-child {
+        .label, .data {
+            border-top:none;
+            padding-top: 0;
+        }
+    }
+}

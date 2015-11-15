@@ -1,0 +1,29 @@
+.enroll {
+    &-intro {
+        @extend %full-image;
+		@extend %homepadding;
+        background-image: url(/images/sign_back.jpg);
+        background-position: center bottom;
+        text-align: center;
+
+        p {
+            max-width: 30em;
+            margin: 0 auto 1em;
+        }
+    }
+    &-tour {
+        @extend %full-image;
+		@extend %homepadding;
+        background-image: url(/images/philo_bg.jpg);    	
+    }
+    &-app-process {
+    	@extend %full-image;
+    	@extend %homepadding;
+    	background-image: url(/images/crayon_lines.jpg);
+        .data-table {
+            .label {
+                width: 25%;
+            }
+        }
+    }
+}

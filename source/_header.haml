@@ -1,0 +1,24 @@
+%header.inner
+ %div.container 
+  .header-title-nav
+   %h1.site-title 
+    = link_to 'Wind <span class="site-title--in-the"><span class="site-title--in">in </span><span class="site-title--the">the </span></span>Willows <span class="site-title--sub">Early Learning Center</span>', '/index.html'
+  .nav-container
+   %a.nav-button.main-nav--toggle{:href => "#main-nav"} 
+    %span Menu
+   %nav#main-nav
+    %ul
+     %li.close
+      %a.main-nav--toggle{:href => "#"} Close Menu
+     %li
+      = link_to 'About Us', '/index.html#mission', {:id => "close-nav"}
+     %li
+      = link_to 'Educational Program', '/program.html'
+     %li
+      = link_to 'Enrollment and Applying', '/enroll.html'
+     %li
+      = link_to 'Questions', '/questions.html' 
+     %li
+      = link_to 'Parents', '/parents.html'
+  .header-tree
+   = image_tag '/images/header-tree.png'

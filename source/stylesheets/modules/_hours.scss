@@ -1,0 +1,15 @@
+.hours {
+    @extend %full-image;
+    background-image: url(/images/clock.jpg);
+    @extend %homepadding;
+    .container-block-left .block-inner {
+    	@include breakpoint ($max-width) {
+            @include span(2 of 4);
+            }
+        }
+    h3 {
+    	margin-top:0;
+    	line-height: 1.2em;
+    	margin-bottom: 0.5em;
+		}
+    }

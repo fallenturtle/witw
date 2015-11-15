@@ -1,0 +1,21 @@
+footer {
+	p {
+		text-align: center;
+		margin:0 auto;
+		max-width: 44em;
+	}
+	.footer-links {
+		text-align: center;
+		list-style: none;
+		li {
+			display: inline;
+			font-size: 1em;
+			padding: 0 0.4em 0 0.5em;
+			white-space: nowrap;
+			border-right: 1px solid black;
+			&:last-of-type {
+				border-right: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,147 @@
+.program-intro {
+    @extend %full-image;
+
+    background-image: url(/images/program.jpg);
+
+    @extend %homepadding;
+
+    text-align: center;
+
+    p {
+        max-width: 30em;
+        margin: 0 auto 1em;
+    }
+}
+
+.program-cont {
+    @extend %full-image;
+    background-image: url(/images/philo_bg.jpg);
+    @extend %homepadding;
+}
+.program-kindergarten {
+    @extend %full-image;
+     @extend %homepadding;
+    background-image: url(/images/kindergarten.jpg);
+}
+.program-extended {
+    @extend %full-image;
+    background-image: url(/images/construction-paper-texture-blue.jpg);
+}
+.daily-overview {
+    @extend %full-image;
+    background-image: url(/images/construction-paper-texture-purple.jpg);
+    .activity-blocks {
+        margin-left: -$pad / 2;
+        margin-right: -$pad / 2;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+    .activity-block {
+        //width: 100%;
+        //max-width: 300px;
+        margin: 0 ($pad / 2) $pad;
+        background-color: adjust-lightness($orange, 10);
+        padding: $pad;
+        color: black;
+        flex: 1 1 auto;
+
+        @include breakpoint($small-portrait $grid-shift) {
+            width: 28%;
+            height: 225px;
+        }
+        @include breakpoint($grid-shift+1) {
+            width: 26%;
+            height: 225px;
+        }
+
+        h3, h4 {
+            margin-top: 0;
+            margin-bottom: 0.25em;
+        }
+
+        &--intro {
+            // background-image: url(/images/sign_back.jpg);
+            // background-size: cover;
+            // background-position: bottom;
+            // display: flex;
+            // align-items: center;
+            //text-align: center;
+            background-color: rgba(white,0.15);
+            color: white;
+            order: 0;
+            @include breakpoint($small-portrait $grid-shift) {
+                width: 100%;
+                height: auto;
+            }
+
+            p {
+                //font-weight: bold;
+                //font-size: 1.3em;
+                //line-height: 1.3em;
+                //margin-top: 0.25em;
+                //font-family: $serif;
+            }
+        }
+        &--choosing {
+            order: 1;
+        }
+        &--group {
+            order: 3;
+        }
+        &--snack {
+            order: 5;
+        }
+        &--outdoor {
+            order: 7;
+        }
+        &--story {
+            order: 9;
+        }
+        &.image {
+            &--playground, &--sandtable, &--mats, &--books {
+                background-size: cover;
+                min-height: 200px;
+                p {
+                    display: none;
+                }
+                @include breakpoint(0 $small-portrait) {
+                    width: 100%;
+                }                
+            }
+            &--playground {
+                background-image: url(/images/playground.jpg);
+                order: 11;
+                @include breakpoint($small-portrait) {
+                    order:6;
+                } 
+                @include breakpoint($grid-shift) {
+                    order:10;
+                }               
+            }
+            &--sandtable {
+                background-image: url(/images/sandtable.jpg);
+                order: 13;
+                @include breakpoint($small-portrait) {
+                    order:2;
+                }
+                @include breakpoint($grid-shift) {
+                    order: 2;
+                }
+            }
+            &--mats {
+                background-image: url(/images/mats.jpg);
+                order: 15;
+                @include breakpoint($small-portrait) {
+                    order:4;
+                }
+                @include breakpoint($grid-shift) {
+                    order:6;
+                }                
+            }
+            &--books {
+                background-image: url(/images/books.jpg);
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+.questions {
+    &-body {
+        //@extend %full-image;
+        //background-image: url(/images/construction-paper-texture-purple.jpg);
+        h2 {
+            //max-width: 30em;
+            margin: 0 0 1em;
+        }
+        .container-block-double-unequal {
+            @include breakpoint($max-width) {
+                .block-column {
+                    &-1 {
+                        @include span(4 of 6);
+                    }
+
+                    &-2 {
+                        @include span(2 of 6 last);
+                    }
+                }
+            }
+        }
+        #map {
+        	width: 300px;
+        	height: 300px;
+        }
+        // .container-row {
+        // 	counter-increment: counter;
+        // }
+        //       .question {
+        //           font-weight: 700;
+        //           font-size: 1.1em;
+        //           box-sizing: border-box;
+        //   		padding-left: 1.75em;
+        //           &:before {
+        //               content: counter(counter) ".";
+        //               position: absolute;
+        //               margin-left: -1.5em;
+        //               font-weight: 700;
+        //               font-size: 1.1em;
+        //           }
+        //       }
+
+        //       .answer {
+        //           h3 {
+        //               display: none;
+        //           }
+        //           @include breakpoint(0 $small-portrait) {
+        //           	padding-left: 1.95em;
+        //           }
+        //       }
+   
+    }
+
+    &-list {
+        //max-width: 30em;
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            margin: 0 0 1em 2em;
+            counter-increment: counter;
+
+            &:before {
+                content: counter(counter) ".";
+                position: absolute;
+                margin-left: -1.5em;
+                font-weight: 700;
+                font-size: 1.1em;
+            }
+        }
+
+        .question {
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .answer {
+            h3 {
+                display: none;
+            }
+        }
+    }
+}

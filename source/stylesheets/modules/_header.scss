@@ -1,0 +1,242 @@
+$susy: (columns: 12, gutters: 1);
+
+header {
+    padding: $base-margin $base-margin 0;
+    @include breakpoint($small-portrait) {
+        padding: $base-margin $base-margin*2 0; 
+    }
+    //@include border-box-sizing;
+    a {
+        @include link-colors(white, shade($link-base,50%));
+    }
+    h1 a {
+        @include link-colors(white,white);
+    }
+    .container {
+    	padding: 0;
+		@include breakpoint($small-portrait) {
+			display: flex;
+			flex-direction: row;
+		}
+    }
+    // @include breakpoint($small-portrait) {
+    // 	padding: $base-margin 0;
+    // }
+    background-image: url(/images/construction-paper-texture-blue.jpg);
+    background-size: cover;
+    .site-title {
+        &--in-the {
+            text-transform: uppercase;
+            text-align: left;
+            font-size: 0.4em;
+            display: inline-block;
+            width: 2em;
+            line-height: 1.1em;
+        }
+        &--sub {
+            font-style: italic;
+            font-size: 0.4em;
+            line-height: 1em;
+        }
+    }
+    &.home {
+        .site-title--sub {
+            display: block;
+        }
+        @include breakpoint(0 $small-portrait) {
+                //height: 100vh;
+                position: relative;
+                box-sizing: border-box;
+                //max-height: 600px;
+        }
+        .header-tree {
+            overflow: auto;
+            @include breakpoint(0 $small-portrait) {
+                position: relative ;
+                bottom: 0;
+            }          
+        	@include breakpoint($drop-nav-max) {
+                align-self: flex-end;
+                flex-basis: 67%;
+                flex-shrink: 2;
+            }
+            @include breakpoint($small-portrait $drop-nav-max) {
+                align-self: flex-end;
+                flex-basis: 60%;
+                flex-shrink: 2;
+            }
+            img {
+                max-width: 100%;
+                display: block;
+                margin: 1.5em auto 0;
+
+                @include breakpoint($small-portrait) {
+                    margin: 0;
+                }
+            }
+        }
+        .header-title-nav {
+        	@include breakpoint($drop-nav-max) {
+            	align-self: center;
+            	flex-basis: 33%;
+    		}
+    	    @include breakpoint($small-portrait $drop-nav-max) {
+            	align-self: center;
+            	flex-basis: 40%;
+    		}
+            @include breakpoint($grid-shift) {
+                float: left;
+            }
+            h1 {
+                margin: 0 0 0.25em;
+                //font-size: 4.5em;
+                font-size: 25vw;
+                line-height: 1em;
+                
+    			@include breakpoint(0 $small-portrait) {
+                text-align: center;
+    			}
+                @include breakpoint(380px) {
+                font-size:24vw;
+                }
+                @include breakpoint($small-portrait $drop-nav-max) {
+                    font-size: 9vw;
+                    max-width: 3.6em;
+                    margin-bottom: 0.35em;
+                }
+                @include breakpoint($drop-nav-max 1000px) {
+                    font-size: 6vw;
+                }
+                @include breakpoint(1000px) {
+                    font-size: 4.25em;
+                    max-width: 3.6em;
+                    margin-bottom: 0.35em;
+                }
+                @include breakpoint($drop-nav-max){
+                    margin: 0 0 0.25em 10.4px;
+                }
+            }
+            ul {
+                margin-right: -2em;
+            }
+        }
+    }
+    &.inner {
+        position: relative;
+        .container {
+            display: flex;
+            justify-content: space-between;
+            @include breakpoint($grid-shift) {
+                display: block;
+                position: relative;
+                overflow: visible;
+            }
+        }
+        .header-tree {
+            align-self: flex-end;
+            z-index: 1;
+            @include breakpoint(0 380px) {
+                //order: 3;
+                display: none;
+            } 
+            @include breakpoint(381px 680px) {
+                order: 3;
+                img {
+                    right: -3em;
+                }
+            } 
+            @include breakpoint(681px $grid-shift) {
+                order: 3;
+                img {
+                    right: -1em;
+                }
+            }
+            @include breakpoint($grid-shift) {
+                //float: right;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            } 
+            img {
+                max-height: 140px;
+                display: block;
+                position: absolute;
+                //margin-top: -140px;
+                bottom:0;
+                @include breakpoint(0 335px) {
+                    // margin-left: -110px;
+                    // max-height: 166px;
+                    display: none;
+                }
+                @include breakpoint($grid-shift) {
+                    margin-top: auto;
+                    bottom: 0;
+                    right: 0;
+                    max-height: 166px;
+                }
+                @include breakpoint($grid-shift $max-width) {
+                    right: -3em;
+                }
+            }          
+        }
+        .header-title-nav {
+            z-index: 2;
+            @include breakpoint(0 $grid-shift) {
+                order: 2;
+                    flex: 1 1 auto;
+            }
+            @include breakpoint($small-portrait $drop-nav-max) {
+                // align-self: center;
+                // flex-basis: 40%;
+            }
+            h1 {
+                margin: 0 0 0.25em 0;
+                font-size: 3em;
+                line-height: 1em;  
+                @include breakpoint(0 855px) {
+                    margin-left: 0;
+                    margin-bottom: 0.5em;
+                    font-size: 2.5em;
+                    .site-title--sub {
+                        display: block;
+                    }
+                }
+                @include breakpoint(0 450px) {
+                    font-size: 2em;
+                }
+                @include breakpoint($small-portrait 680px) {
+                    // font-size: 3em;
+                    // max-width: 3.6em;
+                    // margin-bottom: 0.35em;
+                }
+                @include breakpoint(681px 900px) {
+                    // font-size: 3.5em;
+                    // max-width: 3.6em;
+                    // margin-bottom: 0.35em;
+                }
+                @include breakpoint(901px $max-width) {
+                    // font-size: 4em;
+                }
+                @include breakpoint($grid-shift) {
+                    margin-bottom: 0;
+                }
+            }
+            ul {
+                // margin-right: -2em;
+            }
+        }
+        .nav-container {
+            order: 1;
+            flex: 0 1 auto;
+            margin-top: 7px;
+            z-index: 3;
+            @include breakpint (850px) {
+                    margin-top: -20px;
+                    align-self: center;
+            }
+            @include breakpoint ($grid-shift){
+                        margin-top: 4px;
+            }
+        }
+    }
+}
