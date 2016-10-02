@@ -2,8 +2,31 @@
 	@include background-size(cover);
 	background-position: center;
   color: white;
+  a {
+    @include link-colors(white,$link-base);
+  }
 }
-
+@mixin paper-bg($color, $blend) {
+  background-image: url(/images/construction-paper-texture-tile.jpg);
+  background-size: auto;
+  background-color: $color;
+  background-blend-mode: $blend;
+  .no-backgroundblendmode & {
+    background-image: none;
+  }
+}
+%paper-bg--purple {
+  @include paper-bg(#625975,color-burn);
+}
+%paper-bg--orange {
+  @include paper-bg(#e2ac67,multiply);
+}
+%paper-bg--blue {
+  @include paper-bg(rgba(64, 95, 210, 0.8),color-burn);
+  .no-backgroundblendmode & {
+    background-color: rgb(64, 95, 210);
+  }
+}
 // Triangle helper mixin
 // @param {Direction} $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
 // @param {Color} $color [currentcolor] - Triangle color 
@@ -41,4 +64,17 @@
         -webkit-font-smoothing: subpixel-antialiased;
         -moz-osx-font-smoothing: auto;
     }
+}
+
+
+
+@mixin background-image-retina($file, $type, $width: 100%, $height: auto) {
+  background-image: url($file + '.' + $type);
+
+  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+    & {
+      background-image: url($file + '@2x.' + $type);
+      -webkit-background-size: $width $height;
+    }
+  }
 }

@@ -2,7 +2,7 @@
     &-intro {
         @extend %full-image;
 		@extend %homepadding;
-        background-image: url(/images/sign_back.jpg);
+        // background-image: url(/images/slots.jpg);
         background-position: center bottom;
         text-align: center;
 
@@ -11,18 +11,27 @@
             margin: 0 auto 1em;
         }
     }
-    &-tour {
-        @extend %full-image;
-		@extend %homepadding;
-        background-image: url(/images/philo_bg.jpg);    	
-    }
+  //   &-tour {
+  //       @extend %full-image;
+		// @extend %homepadding;
+  //       background-image: url(/images/philo_bg.jpg);    	
+  //   }
     &-app-process {
     	@extend %full-image;
     	@extend %homepadding;
-    	background-image: url(/images/crayon_lines.jpg);
+    	// background-image: url(/images/crayon_lines.jpg);
+        @include background-image-retina('/images/crayon_lines', 'jpg', 1400px, 687px);
+        @include breakpoint(0 $small-portrait) {
+        .block-inner {
+            margin-top:2em;
+            margin-bottom: 2em;
+        }
+    }
         .data-table {
             .label {
+                @include breakpoint($drop-nav-max) {
                 width: 25%;
+                }
             }
         }
     }

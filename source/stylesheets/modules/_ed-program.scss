@@ -1,7 +1,7 @@
 .program-intro {
     @extend %full-image;
 
-    background-image: url(/images/program.jpg);
+    //background-image: url(/images/program.jpg);
 
     @extend %homepadding;
 
@@ -15,21 +15,30 @@
 
 .program-cont {
     @extend %full-image;
-    background-image: url(/images/philo_bg.jpg);
+    //background-image: url(/images/presentwrap.jpg);
+    @include background-image-retina('/images/presentwrap', 'jpg', 1400px, 587px);
     @extend %homepadding;
+    background-position: right;
+    @include breakpoint(0 $small-portrait) {
+        background-position: 82%;
+    }
+    @include breakpoint($small-portrait $max-width) {
+        background-position: 68%;
+    }
 }
 .program-kindergarten {
     @extend %full-image;
-     @extend %homepadding;
-    background-image: url(/images/kindergarten.jpg);
+    @extend %homepadding;
+    // background-image: url(/images/kindergarten.jpg);
+    @include background-image-retina('/images/kindergarten', 'jpg', 1400px, 682px);
 }
 .program-extended {
     @extend %full-image;
-    background-image: url(/images/construction-paper-texture-blue.jpg);
+    @extend %paper-bg--blue;
 }
 .daily-overview {
     @extend %full-image;
-    background-image: url(/images/construction-paper-texture-purple.jpg);
+    @extend %paper-bg--purple;
     .activity-blocks {
         margin-left: -$pad / 2;
         margin-right: -$pad / 2;
@@ -67,7 +76,7 @@
             // display: flex;
             // align-items: center;
             //text-align: center;
-            background-color: rgba(white,0.15);
+            background-color: rgba(white,0.1);
             color: white;
             order: 0;
             @include breakpoint($small-portrait $grid-shift) {

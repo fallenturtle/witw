@@ -1,5 +1,9 @@
 # If you do not have OpenSSL installed, update
 # the following line to use "http://" instead
+
+# If you get an openssl error when installing bundle
+# try before "bundle install", "bundle config build.eventmachine --with-cppflags=-I$(brew --prefix openssl)/include"		
+
 source 'https://rubygems.org'
 
 gem "middleman", "~>3.3.12"

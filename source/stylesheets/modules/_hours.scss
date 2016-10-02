@@ -2,6 +2,13 @@
     @extend %full-image;
     background-image: url(/images/clock.jpg);
     @extend %homepadding;
+    background-position: 80%;
+        @include breakpoint(0 $small-portrait) {
+        .block-inner {
+            margin-top:2em;
+            margin-bottom: 2em;
+        }
+    }
     .container-block-left .block-inner {
     	@include breakpoint ($max-width) {
             @include span(2 of 4);

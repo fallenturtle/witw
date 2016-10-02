@@ -9,8 +9,10 @@
   %meta{:content => "width=device-width, initial-scale=1", "name" => "viewport"}
   %link{:href => "http://fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic|Alegreya+Sans:400,400italic,500,500italic,700,700italic", :rel => "stylesheet", :type => "text/css"}
   = stylesheet_link_tag 'style'
+  = javascript_include_tag 'modernizr-custom.js'
   = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'
   = javascript_include_tag 'jquery.jpanelmenu'
+  = javascript_include_tag 'parallax.min.js'
  %body
   - if current_page.path == 'index.html'
    = render_partial 'header-home'

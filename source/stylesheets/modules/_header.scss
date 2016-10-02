@@ -7,10 +7,11 @@ header {
     }
     //@include border-box-sizing;
     a {
-        @include link-colors(white, shade($link-base,50%));
+        @include link-colors(white, $orange);
+        text-decoration: none;
     }
     h1 a {
-        @include link-colors(white,white);
+        @include link-colors(white,$orange);
     }
     .container {
     	padding: 0;
@@ -22,8 +23,9 @@ header {
     // @include breakpoint($small-portrait) {
     // 	padding: $base-margin 0;
     // }
-    background-image: url(/images/construction-paper-texture-blue.jpg);
-    background-size: cover;
+    // background-image: url(/images/construction-paper-texture-blue.jpg);
+    // background-size: cover;
+        @extend %paper-bg--blue;
     .site-title {
         &--in-the {
             text-transform: uppercase;
@@ -37,6 +39,7 @@ header {
             font-style: italic;
             font-size: 0.4em;
             line-height: 1em;
+            overflow: visible;
         }
     }
     &.home {

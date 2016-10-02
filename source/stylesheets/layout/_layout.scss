@@ -5,7 +5,8 @@ $susy: (global-box-sizing: border-box);
 
     @include breakpoint(0 $small-portrait) {
         padding: $base-margin;
-        margin-top: 8em;
+        margin-top: 12em;
+        margin-bottom: 0;
     }
 
 
@@ -24,7 +25,7 @@ $susy: (global-box-sizing: border-box);
 
 
 @include breakpoint(0 $small-portrait) {
-    .container-block-left, .container-block-right, .container-block-right-tight, .container-block-middle {
+    .container-block-left, .container-block-right, .container-block-right-tight, .container-block-left-tight, .container-block-middle {
         margin-left: $pad;
         margin-right: $pad;
     }
@@ -39,6 +40,11 @@ $susy: (global-box-sizing: border-box);
 @include breakpoint($small-portrait $max-width) {
     .container-block-left {
         @include span(8 of 12);
+        &-tight {
+            @include span(2 of 3);
+
+            // @include push(1 of 3);
+        }
     }
 
     .container-block-right {
@@ -252,10 +258,35 @@ $susy: (global-box-sizing: border-box);
        
         }
     }
+}
+.container-block-left-tight {
+    @include breakpoint($max-width) {
+        @extend %container-bleed;
 
+        .block-core {
+            flex-basis: $max-width;
 
-    // @include breakpoint($small-portrait) {
-    //     @include span(6 of 12 last);
-    //     @include push(6 of 12);
-    // }
+            @include container(3 border-box);
+        }
+
+        .block-after {
+            flex-grow: 2;
+        }
+
+        .block-before {
+            background-color: rgba(black, 0.85);
+            flex-grow: 2;
+        }
+
+        .block-inner {
+            @include span(4 of 12);
+
+            // @include pull(8 of 12);
+
+            box-sizing: border-box;
+
+            padding-left: 0;
+       
+        }
+    }
 }

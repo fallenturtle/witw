@@ -1,4 +1,4 @@
-$table-collapse: 678px;
+$table-collapse: 740px;
 .data-table {
     display: table;
     @include breakpoint(0 $table-collapse) {
@@ -19,13 +19,19 @@ $table-collapse: 678px;
         padding-right: $pad;
         text-align: left;
         border-top: 1px dotted black;
-            .block-inner & {
-                border-top: 1px dotted white;
-            }
+        .block-inner & {
+            border-top: 1px dotted white;
+        }
         padding: ($pad * 0.75) 0 ($pad/4);
         @include breakpoint($table-collapse) {
             margin-bottom: $pad;
         padding: ($pad * 0.75) $pad $pad 0;
+        }
+        &-note {
+            display: block;
+            font-size: 0.85em;
+            font-weight: 400;
+            margin-top: -0.3em;
         }
     }
 

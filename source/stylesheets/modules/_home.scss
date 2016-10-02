@@ -16,7 +16,7 @@
     @extend %full-image;
     @extend %homepadding;
     //min-height:25em;
-    background-image: url(/images/mission_bg.jpg);
+    //background-image: url(/images/mission_bg.jpg);
     text-align: center;
 
     // background-position: center;
@@ -26,15 +26,23 @@
     }
 }
 
+
 .philosophy {
     @extend %full-image;
-    background-image: url(/images/philo_bg.jpg);
+     //background-image: url(/images/philo_bg.jpg);
+    @include background-image-retina('/images/philo_bg', 'jpg', 1400px, 620px);
     @extend %homepadding;
+    background-position: 55%;
 }
 
 .staff {
     @extend %full-image;
-    background-image: url(/images/construction-paper-texture-purple.jpg);
+    //background-image: url(/images/construction-paper-texture-purple.jpg);
+    // background-image: url(/images/construction-paper-texture-tile.jpg);
+    // background-color: #625975;
+    // background-size: auto;
+    // background-blend-mode: color-burn;
+    @extend %paper-bg--purple;
     .block-left > h2 {
                 margin-top: $pad/4;
     }
@@ -53,6 +61,11 @@
 
 .community {
     @extend %full-image;
-    background-image: url(/images/comm_bg.jpg);
+    // background-image: url(/images/comm_bg.jpg);
+    @include background-image-retina('/images/comm_bg', 'jpg', 1400px, 561px);
     @extend %homepadding;
+    background-position: 82%;
+    @include breakpoint($small-portrait) {
+        background-position: 71%;
+    }
 }
